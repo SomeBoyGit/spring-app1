@@ -12,9 +12,6 @@ import javax.annotation.PreDestroy;
  */
 public class ClassicalMusic implements Music {
 
-    public static ClassicalMusic getClassicalMusic() {
-        return new ClassicalMusic();
-    }
     @PostConstruct
     public void doMyInit() {
         System.out.println("Doing my initialization");

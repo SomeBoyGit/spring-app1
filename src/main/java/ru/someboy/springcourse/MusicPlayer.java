@@ -1,36 +1,23 @@
 package ru.someboy.springcourse;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
+
+import java.util.List;
+import java.util.Random;
 
 /**
  * @author Slipets Artem
  */
 public class MusicPlayer {
-    @Value("${musicPlayer.name}")
-    private String name;
-    @Value("${musicPlayer.volume}")
-    private int volume;
+    private List<Music> musicList;
 
-    public String getName() {
-        return name;
-    }
-
-    public int getVolume() {
-        return volume;
-    }
-
-    private Music music1;
-    private Music music2;
-
-    public MusicPlayer(@Qualifier("classicalMusic") Music music1, @Qualifier("rockMusic") Music music2) {
-        this.music1 = music1;
-        this.music2 = music2;
+    public MusicPlayer(List<Music> musicList) {
+        this.musicList = musicList;
     }
 
     public String playMusic() {
-        return "Playing: " + music1.getSong() + " Playing: " + music2.getSong();
+        int random = new Random().nextInt(3);
+
+        return "Playing: " + musicList.get(random).getSong();
     }
 }
