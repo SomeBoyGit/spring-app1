@@ -7,7 +7,8 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class RockMusic implements Music {
-    public String getSong() {
-        return "Wind cries Mary";
+    private String[] rockMusicList = {"Wind cries Mary", "Highway to Hell", "Smells Like Teen Spirit"};
+    public String[] getSong() {
+        return rockMusicList;
     }
 }
